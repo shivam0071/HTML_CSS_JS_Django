@@ -1,0 +1,29 @@
+h1{
+  font-family: Lucida Bright;
+  text-align: center;
+}
+
+/* If you want to change the size...the preffered way is to set the font size of the whole body and then change the
+font size accourding to em ..by default 1em = 16px */
+
+body{
+  font-size: 20px;
+}
+p{
+  font-family: cursive;
+  font-weight: bold;
+}
+
+#two
+{
+  color: red;
+  font-size: 1.3em;
+
+}
+
+
+/* for different font families according to OS checkout google - list of typefaces included with windows  */
+/* link https://en.wikipedia.org/wiki/List_of_typefaces_included_with_Microsoft_Windows */
+/* and to check the availability on both the platform check out https://www.cssfontstack.com/ */
+
+/* you can also download fonts from - https://fonts.google.com/ or https://fontlibrary.org/ */

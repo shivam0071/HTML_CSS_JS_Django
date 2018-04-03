@@ -1,0 +1,21 @@
+p{
+  color: #0d5142;
+}
+
+body{
+  /* background: #c1e2ff */
+  background: url(https://i.pinimg.com/originals/66/71/11/6671110aaffe2ab33d124fb18fec5197.jpg);
+  background-repeat: repeat; 
+}
+/* ...div borders need style border and color */
+div
+{
+  background: rgb(144, 226, 138);
+  border-color: #052889;
+  border-style: groove;
+  border-width: 10px;
+}
+
+span{
+  background: #49ff2d
+}

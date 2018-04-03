@@ -1,0 +1,24 @@
+/* Basic CSS format
+selected tag{
+  property: value
+} */
+
+h1{
+  color: Red
+}
+
+li{
+  color: rgb(66, 167, 244);
+}
+
+
+h6{
+  color: #d108a5
+}
+
+h2{
+  color: rgba(255, 0, 0, 0.5);
+}
+
+here a is alpha which represents the transparency
+0 to 1

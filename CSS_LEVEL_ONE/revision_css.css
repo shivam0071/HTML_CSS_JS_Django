@@ -1,0 +1,33 @@
+body{
+  background-color: #99bdf7;
+}
+
+h1{
+  border: 1px solid black;
+}
+#greet{
+  color: white;
+}
+
+h2{
+  color: purple;
+}
+
+#li1{
+  color: purple;
+  text-decoration: overline;
+}
+
+a:visited {
+    color: green;
+}
+
+.feedback{
+  border: 3px dashed yellow ;
+  background:rgb(8, 56, 135)
+
+}
+
+#ques{
+  color: white
+}

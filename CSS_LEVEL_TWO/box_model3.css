@@ -1,0 +1,28 @@
+/* A box model just tells about this....
+
+                          top  Margin
+                          top  Border
+                          top  padding
+                          text(any element)
+                          bottom  padding
+                          bottom   Border
+                          bottom  Margin */
+
+/* also left and right padding */
+
+#top{
+  color: red;
+  text-align: center;
+  border: 2px solid red;
+  width: 25%;
+  margin:auto;
+}
+
+/* margin auto places the tex and border in middle*/
+
+#bottom{
+  color: blue;
+  padding-left: 50%;
+  border: 2px solid blue;
+  margin-left: 20%
+}

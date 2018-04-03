@@ -1,0 +1,35 @@
+h3{
+color: red;
+}
+
+/* CSS Selectors and the specificity*/
+/* . and classname to use a class of html*/
+.divTag1{
+  color: blue;
+}
+
+.divTag2{
+  color: green;
+  text-decoration: underline;
+}
+
+/* # to use an id  */
+#para1{
+  color: magenta;
+}
+
+/* ul tag  near h3  */
+h3 + ul{
+  border: 4px dotted purple;
+}
+
+/* any tag (here a) inside ul */
+li a{
+ color: orange;
+}
+
+li a[href="https://www.youtube.com"]
+{
+  color: blue;
+  border: 4px dotted red;
+}
