@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Radio Button and Drop Down</title>
+  </head>
+  <body>
+    <h1>Radio Button and Drop Down</h1>
+    <h2>Favourite Coin</h2>
+
+    <form method="get">
+      <label for="btc">Bitcoin</label>
+       <input id="btc" type="radio" name="coin" value="Bitcoin">  <!--same name so that only one radio button is selected -->
+       <!-- name holds a value -->
+      <label for="ltc">Litecoin</label>
+      <input type="radio" name="coin" value="Litecoin">
+
+    <h2>Creator Names</h2>
+    <!-- for drop down we use select and not input and inside we have options -->
+    <select name="drop_down">
+      <option value="Satoshi Nakamoto">Bitcoin</option>
+      <option value="Charlee Lee">Litecoin</option>
+    </select>
+
+    <h3>What are your thoughts?</h3>
+    <!-- textarea for multi line text -->
+    <textarea name="summary" rows="8" cols="80" placeholder="Write summary here"></textarea>
+    <h2></h2>
+    <input type="submit" name="" value="Submit">
+
+    </form>
+
+  </body>
+</html>

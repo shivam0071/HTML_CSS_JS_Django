@@ -1,0 +1,42 @@
+/* use break <br> for next line */
+body
+{
+  color: white;
+  background: #03193d;
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  border-left: 60px solid #76d8e2;
+  border-right: 60px solid #76d8e2;
+  border-bottom: 60px solid #76d8e2;
+}
+/*  */
+#head2
+{
+  margin-bottom: 10%;
+}
+
+.main_text1
+{
+margin-left: 15%;
+margin-right: 15%;
+}
+
+#main_text2{
+  margin-bottom: 10%;
+}
+
+form p{
+  margin-bottom: -0.1%;
+}
+
+#button
+{
+  background-color: #a57b0e;
+  color: black;
+  width: 120px;
+  height: 60px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 1%;
+}
