@@ -1,0 +1,8 @@
+use
+console.dir(object_name)
+to view the full attributes of an object
+
+To view the DOM
+go to any website and in console type "document"
+and to see the actual object use
+console.dir(document)
