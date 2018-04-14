@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>jQuery Intro</h1>
+    <ul>
+    <li>This is a test list</li>
+    <li>Quite Boring</li>
+    <li>Let me tell you a joke</li>
+    <li id='special'>You are special</li>
+    </ul>
+    <h1>Hello</h1>
+
+    <form  method="post">
+      <input type="text" name="" value="Some Text">
+      <input type="button" name="" value="Submit">
+    </form>
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<!-- var x = $('h1')
+x.css('color', 'red')
+jQuery.fn.init [h1, prevObject: jQuery.fn.init(1)] -->
+
+<!-- creating CSS -->
+<!-- var y = {
+'color': 'red',
+'background': 'blue',
+'border': '20px solid red'
+}
+x.css(y)
+
+z = $('li')
+jQuery.fn.init(4) [li, li, li, li#special, prevObject: jQuery.fn.init(1)]
+z.eq(1)
+z.eq(0).css('color','blue')
+
+x.text()
+"jQuery IntroHello"
+
+x.text('Yeah')
+jQuery.fn.init(2) [h1, h1, prevObject: jQuery.fn.init(1)]
+changs both
+
+x.html('<strong>Haha</strong>')
+jQuery.fn.init(2) [h1, h1, prevObject: jQuery.fn.init(1)]
+#just like innerHTML
+use .eq() for selcting a single tag
+
+
+$('input').eq(0).val('new Text')
+jQuery.fn.init [input, prevObject: jQuery.fn.init(2)]
+
+$('input').eq(1).attr('type','radio')
+jQuery.fn.init [input, prevObject: jQuery.fn.init(2)]
+
+
+Add Class/Remove
+
+$('h1').addClass('some class here')
+$('h1').removeClass('some class here')
+same can be done using
+$('h1').toggle('some class here')
