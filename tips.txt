@@ -10,3 +10,15 @@ console.dir(document)
 10/04/2018
 setInterval("changeHeaderColor()",500);
 calls that method every 500 millisecond
+
+
+CONDA and Stuff
+
+i created a virtual env usong CONDA
+conda create --name myDjangoEnv myDjangoEnv
+which created a virtual env and also installed python and other packages which include django as well
+
+django ENV:-
+activate myDjangoEnv
+PATH:- C:\Users\Admins\Anaconda3\envs\myDjangoEnv
+conda info --envs
