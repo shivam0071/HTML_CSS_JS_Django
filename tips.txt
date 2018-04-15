@@ -10,3 +10,5 @@ console.dir(document)
 10/04/2018
 setInterval("changeHeaderColor()",500);
 calls that method every 500 millisecond
+
+Inside Another Branch
