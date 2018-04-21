@@ -48,5 +48,3 @@ function row_click() {
 column = $('td');
 console.log(column);
 column.on('click',row_click)
-
-C:\Users\Admins\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Admins\AppData\Local\Programs\Python\Python36-32\;C:\Program Files (x86)\Java\jdk1.5.0_02\bin;C:BORLAND\BCC55\BIN;C:\jogl\jarss;C:\Program Files\MongoDB\Server\3.2\bin;C:\octave-4.0.0_0\octave-4.0.0\bin;C:\Program Files (x86)\Mozilla Firefox\geckodriver-v0.15.0-win64(1);C:\Program Files (x86)\Mozilla Firefox;C:\Python27\;C:\Python27\Scripts

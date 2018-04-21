@@ -15,10 +15,45 @@ calls that method every 500 millisecond
 CONDA and Stuff
 
 i created a virtual env usong CONDA
-conda create --name myDjangoEnv myDjangoEnv
+conda create --name myDjangoEnv django
 which created a virtual env and also installed python and other packages which include django as well
 
 django ENV:-
 activate myDjangoEnv
 PATH:- C:\Users\Admins\Anaconda3\envs\myDjangoEnv
 conda info --envs
+
+
+When we install Django, it also installs a command line tool called
+django-admin
+
+
+creating project:-
+django-admin startproject first_project
+
+
+__inint__.py Lets python know that this directory can be treated as a package
+settings.py - We keep all our settings here
+urls.py --  contains all the urls...we have to use regex here
+wsgi.py -- this act as web server gateway interface , helps to deploy web app to production
+python manage.py runserver
+
+manage.py  it is one of the important file, we are going to use it a lot
+
+python manage.py runserver -- runs the dev server
+you have 14 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contentty
+pes, sessions.
+
+A migration is related to databases
+A migration allows us to move databases from one design to another and its reversible...for example...adding or removing a column
+
+
+Django Apps....we generally create many django apps which we can plugged together or plug into other django projects
+python manage.py startapp first_app
+
+  views.py ->
+  model.py ->
+
+
+
+We can add an include function and make it call a new url.py which we will make in app
