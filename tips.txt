@@ -55,5 +55,113 @@ python manage.py startapp first_app
   model.py ->
 
 
+Polling project Starts here :-
 
+To call the view, we need to map it to a URL - and for this we need a URLconf
 We can add an include function and make it call a new url.py which we will make in app
+The include() function allows referencing other URLconfs. Whenever Django encounters include(),
+ it chops off whatever part of the URL
+ matched up to that point and sends the remaining string to the included URLconf for further processing.
+
+ The idea behind include() is to make it easy to plug-and-play URLs.
+  Since polls are in their own URLconf (polls/urls.py), they can be placed under “/polls/”, or under “/fun_polls/”,
+  or under “/content/polls/”, or any other path root, and the app will still work.
+
+
+path() -- The path() function is passed four arguments, two required: route and view, and two optional: kwargs, and name.
+ At this point, it’s worth reviewing what these arguments are for.
+
+1.) path() argument: route¶
+Route is a string that contains a URL pattern. When processing a request,
+Django starts at the first pattern in urlpatterns and makes its way down the list,
+comparing the requested URL against each pattern until it finds one that matches.
+
+2.)path() argument: view¶
+When Django finds a matching pattern, it calls the specified view function with an HttpRequest object as the first argument
+and any “captured” values from the route as keyword arguments
+
+3.) path() argument: kwargs¶
+Arbitrary keyword arguments can be passed in a dictionary to the target view.
+
+4.)path() argument: name¶
+Naming your URL lets you refer to it unambiguously from elsewhere in Django, especially from within templates.
+This powerful feature allows you to make global changes to the URL patterns of your project while only touching a single file.
+
+db - https://docs.djangoproject.com/en/2.0/intro/tutorial02/
+
+
+settings.py:-
+By default, INSTALLED_APPS contains the following apps, all of which come with Django:
+django.contrib.admin – The admin site. You’ll use it shortly.
+django.contrib.auth – An authentication system.
+django.contrib.contenttypes – A framework for content types.
+django.contrib.sessions – A session framework.
+django.contrib.messages – A messaging framework.
+django.contrib.staticfiles – A framework for managing static files.
+
+Some of these applications make use of at least one database table, though,
+so we need to create the tables in the database before we can use them.
+To do that, run the following command:
+
+$python manage.py migrate  #also removes the migration warnings
+
+The migrate command looks at the INSTALLED_APPS setting and creates any
+necessary database tables according to the database settings in your mysite/settings.py
+file and the database migrations shipped with the app
+
+
+Creating models
+Now we’ll define your models – essentially, your database layout, with additional metadata.
+
+A model is the single, definitive source of truth about your data.
+It contains the essential fields and behaviors of the data you’re storing.
+Django follows the DRY(dont repeat yourself) Principle.
+ The goal is to define your data model in one place and automatically derive things from it.
+
+This includes the migrations - unlike in Ruby On Rails, for example, migrations are entirely derived from your models file,
+and are essentially just a history that Django can roll through to update your database schema to match your current models.
+
+added 2 models..check out the models.py
+
+$python manage.py makemigrations polling_app
+
+By running makemigrations, you’re telling Django that you’ve made some changes to your models (in this case, you’ve made new ones)
+and that you’d like the changes to be stored as a migration.
+
+Migrations are how Django stores changes to your models (and thus your database schema) -
+they’re just files on disk. You can read the migration for your new model if you like;
+it’s the file polls/migrations/0001_initial.py. Don’t worry, you’re not expected to read them
+every time Django makes one,but they’re designed to be human-editable in case you
+want to manually tweak how Django changes things.
+
+
+There’s a command that will run the migrations for you and manage your database schema automatically -
+that’s called migrate, and we’ll come to it in a moment - but first,
+let’s see what SQL that migration would run. The sqlmigrate command takes migration names and returns their SQL:
+$python manage.py sqlmigrate polls 0001
+
+
+The migrate command takes all the migrations that haven’t been applied (Django tracks which ones
+are applied using a special table in your database called django_migrations)
+and runs them against your database - essentially, synchronizing the changes you made to your models with the schema in the database.
+
+Migrations are very powerful and let you change your models over time, as you develop your project, without the need to
+delete your database or tables and make new ones - it specializes in upgrading your database live, without losing data.
+We’ll cover them in more depth in a later part of the tutorial, but for now, remember the three-step guide to making model changes:
+
+* Change your models (in models.py).
+* Run python manage.py makemigrations to create migrations for those changes
+* Run python manage.py migrate to apply those changes to the database.
+
+The reason that there are separate commands to make and apply migrations is
+because you’ll commit migrations to your version control system and ship them with your app;
+they not only make your development easier, they’re also useable by other developers and in production.
+
+
+PYTHON SHELL with Django in EnvVar
+$ python manage.py shell
+We’re using this instead of simply typing “python”, because manage.py sets the
+DJANGO_SETTINGS_MODULE environment variable,which gives Django the Python import path to your mysite/settings.py file.
+
+
+TEMPLATES :- The templates will contain the static parts of an HTML page
