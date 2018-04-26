@@ -165,3 +165,8 @@ DJANGO_SETTINGS_MODULE environment variable,which gives Django the Python import
 
 
 TEMPLATES :- The templates will contain the static parts of an HTML page
+make a template in manage.py level and define the HTML there now
+we will use a render function in index function which we define in the views
+templates have their own tags as dict which is pretty weird
+
+1st making changes to settings.py to include the templates
