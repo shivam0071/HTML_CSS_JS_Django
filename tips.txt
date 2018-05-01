@@ -125,8 +125,8 @@ added 2 models..check out the models.py
 
 $python manage.py makemigrations polling_app
 
-By running makemigrations, you’re telling Django that you’ve made some changes to your models (in this case, you’ve made new ones)
-and that you’d like the changes to be stored as a migration.
+By running makemigrations, you’re telling Django that you’ve made some changes to your models (in this case,
+you’ve made new ones) and that you’d like the changes to be stored as a migration.
 
 Migrations are how Django stores changes to your models (and thus your database schema) -
 they’re just files on disk. You can read the migration for your new model if you like;
@@ -162,6 +162,28 @@ PYTHON SHELL with Django in EnvVar
 $ python manage.py shell
 We’re using this instead of simply typing “python”, because manage.py sets the
 DJANGO_SETTINGS_MODULE environment variable,which gives Django the Python import path to your mysite/settings.py file.
+
+>>>from first_app import models
+>>>print(models.Topic.objects.all())
+>>> t = models.Topic(top_name = "Social Network")
+>>> t.save()
+
+
+Admin Panel:-
+add models to admins.py
+admin.site.register(AccessRecord)
+
+now create a superuser by
+python manage.py createsuperuser
+Name - Shaan
+email - Shaan.test@abcd.com
+Pass - shaantest1234
+
+
+FAKER module for fake data in data because
+pip install Faker
+
+docs:- faker.readthedocs.io
 
 
 TEMPLATES :- The templates will contain the static parts of an HTML page
