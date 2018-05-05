@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<!-- for static content last lecture changes-->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>First App</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static "css/myStyle.css" %}">
+        <link rel="stylesheet" href="{% static "css/myStyle2.css" %}">
+    <title>Django Level Two</title>
   </head>
   <body>
-<div class="container">
-
-<h1>This is from index.html in templates folder</h1>
-  {{insert_me}}
-  <!-- for static content last lecture changes-->
-<h1>Some CryptoKnowledge</h1>
-</div>
-  <img src="{% static "images/coins.jpg" %}" alt="Bitconnnnnnnecctttttttt!!!!!!!!1">
+    <h1>Accessing Records from Database</h1>
+    {% if access_records %}
+    <table>
+      <thead>
+        <th>Site</th>
+        <th>Date</th>
+      </thead>
+      {% for acc in access_records %}
+        <tr>
+          <td>{{acc.name}}</td>
+          <td>{{acc.date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+      {% else %}
+      <p>No Data Found</p>
+      {% endif %}
   </body>
-
 </html>

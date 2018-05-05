@@ -148,7 +148,7 @@ and runs them against your database - essentially, synchronizing the changes you
 Migrations are very powerful and let you change your models over time, as you develop your project, without the need to
 delete your database or tables and make new ones - it specializes in upgrading your database live, without losing data.
 We’ll cover them in more depth in a later part of the tutorial, but for now, remember the three-step guide to making model changes:
-
+*python manage.py migrate
 * Change your models (in models.py).
 * Run python manage.py makemigrations to create migrations for those changes
 * Run python manage.py migrate to apply those changes to the database.
@@ -192,3 +192,12 @@ we will use a render function in index function which we define in the views
 templates have their own tags as dict which is pretty weird
 
 1st making changes to settings.py to include the templates
+
+
+Modes - Views - TEMPLATES
+
+1.) import models to the view
+2.) use view to query the model data
+3.) Pass the result from the model to the template
+4.) Edit the template so that it is ready to accept and display the data from the model
+5.) Map the URL to the view
