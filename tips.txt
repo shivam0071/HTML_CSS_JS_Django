@@ -201,3 +201,10 @@ Modes - Views - TEMPLATES
 3.) Pass the result from the model to the template
 4.) Edit the template so that it is ready to accept and display the data from the model
 5.) Map the URL to the view
+
+
+
+FORMS
+forms are made just like models
+for forms we do the following things
+1.) Create a forms.py file and add form fields which are similiar to models field (CharField etc) (check the forms.py)

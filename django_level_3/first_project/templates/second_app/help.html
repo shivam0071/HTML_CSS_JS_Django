@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Help</title>
+    <link rel="stylesheet" href="{% static "css/myStyle2.css" %}">
+  </head>
+  <body>
+    <h1>Help!!!!!!!</h1>
+    <form method="post">
+          {{form.as_p}}
+          {% csrf_token %}
+          <input type="submit" value="Submit" onclick="index.html">
+    </form>
+
+
+    <!-- {% if first_n %}
+<ol>
+    {% for key in first_n %}
+  <li>User Info.</li>
+  <ul>
+    <li>{{key.name}}</li>
+    <li>{{key.last}}</li>
+    <li>{{key.email}}</li>
+  </ul>
+    {% endfor %}
+</ol>
+    {% else %}
+      <p>No Names Found</p>
+    {% endif%} -->
+  </body>
+</html>
