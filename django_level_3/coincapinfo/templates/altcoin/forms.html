@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Add a new coin to database</h1>
+    <form method="post">
+          {{forms.as_p}}
+          {% csrf_token %}
+          <input type="submit" value="Enter">
+    </form>
+
+    <form method="post">
+      {{forms2.as_p}}
+      {% csrf_token %}
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
