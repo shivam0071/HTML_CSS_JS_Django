@@ -208,3 +208,47 @@ FORMS
 forms are made just like models
 for forms we do the following things
 1.) Create a forms.py file and add form fields which are similiar to models field (CharField etc) (check the forms.py)
+
+checkout coininfocap app to see the usuage of many things
+
+level 4
+
+Using the anchor tag in html
+use a varable called app_name inside urls.py ,app_name = 'basic_app' now django automatically searches for a variable
+called app name and maps the url accordingly
+example:- <a href="{% url 'basic_app:other' %}">Other Page</a>
+          <a href="{% url 'index' %}">INDEX PAGE</a>
+
+Inheritance:-
+A base template can be used which can be inherited in all the other html files
+
+can be used as
+
+{% block body_block %}
+
+{% endblock %}
+
+everything outside this is inherited
+similarly there are other block like head block etc
+
+just add
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block body_block %}
+<h1>{{ num|add:30 }}</h1>
+{% endblock %}
+
+in other Html files nd we are done
+
+Template filters
+WE can also perform operations on data that we inject using views or models or forms
+using filter....filters are some python functions...we can even make the custom filters
+
+eg:- <h1>{{ num|add:30 }}</h1>
+adds 30 to num
+
+ex- Custom filters
+1.) make a directory in the app folder as templatetags
+2.) make __init__.py
+3.) make another pyhton files
+4.) check out the content in level 4...decorator used
