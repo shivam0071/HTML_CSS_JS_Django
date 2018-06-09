@@ -1,14 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+{% extends "basic_app/base.html" %}
+{% block body_block %}
     <h1>Welcome to Relative URL Page</h1>
     <a href="{% url 'basic_app:other' %}">Other Page</a>
     <a href="{% url 'index' %}">INDEX PAGE</a>
-    <!-- <a href="{% url 'admin:index' %}">ADMIN </a> Not working
-    
-  </body>
-</html>
+     <!-- <a href="{% url 'admin:index' %}">ADMIN </a> Not working -->
+{% endblock %}

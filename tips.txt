@@ -252,3 +252,65 @@ ex- Custom filters
 2.) make __init__.py
 3.) make another pyhton files
 4.) check out the content in level 4...decorator used
+
+
+
+Django Level 5:-
+
+Passwords
+We use some inbuilt apps to achieve that...
+add
+django.contrib.auth
+django.contrib.contenttypes
+to in INSTALLED_APPS of settings.py
+migrate the db to add those apps
+
+
+Never Store passwords in plain texts
+always encrypt them
+django uses in built PBKDF2 with an SHA256 HASH
+but we can also use more advanced like bcrypt and django[argon2]
+
+pip install bcrypt
+pip install django[argon2]
+
+we have
+templates folder static folder and similarly media folder
+MEDIA folder is used to store the data that belogs to the user..like images text etc
+
+
+include it in the settings file
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [STATIC_DIR,]
+
+
+#MEDIA
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
+
+
+PASSWORD_HASHER -- We decide what hashing algos we are supporting...so we include a list of
+algos...so whichever is supported by the server that is used
+
+
+# https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
+
+PASSWORD_HASHER =[
+        'django.contrib.auth.hashers.Argon2PasswordHasher',  #most powerful
+        'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+        'django.contrib.auth.hashers.BCryptPasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
+
+
+In order to work with images
+models.ImageField(upload_to='profile_pics')
+we need to install pillow
+pip install pillow
+
+
+
+login
+checkout view.py of level 5

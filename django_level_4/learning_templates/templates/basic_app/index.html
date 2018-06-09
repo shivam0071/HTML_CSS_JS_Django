@@ -3,9 +3,9 @@
 {% block body_block %}
     <h1>Welcome to Index Page</h1>
     <p>Inherited</p>
-    <h1>{{ name }} to </h1>
+    <h1>{{ name|upper }} to </h1>
     <h1>{{ name|cut:'Hello' }}</h1>
     <!-- inbuilt template filter example -->
-    
+
     <h1>{{ num|add:30 }}</h1>
 {% endblock %}
