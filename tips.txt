@@ -290,6 +290,7 @@ MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
 
+
 PASSWORD_HASHER -- We decide what hashing algos we are supporting...so we include a list of
 algos...so whichever is supported by the server that is used
 
@@ -314,3 +315,9 @@ pip install pillow
 
 login
 checkout view.py of level 5
+
+
+CBV's
+Class Based views
+
+we usually make a method in views.py to call an html but we can use classes as well..which is a better alternative
