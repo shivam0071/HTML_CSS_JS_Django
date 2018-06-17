@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <title>Youtube Downloader</title>
-  </head>
-  <body>
-    <div class="jumbotron">
-    <h1>Welcome to Youtube Downloader</h1>
-    </div>
-
-<form  method="post">
-  {% csrf_token %}
-    {{form.as_p}}
-<input type="submit" class= "btn btn-primary" value="Download">
-</form>
-
-  </body>
-</html>
+{% extends "youtube/base.html" %}
+{% block body_block %}
+<h1>Welcome to Youtube Downloader</h1>
+  <div id="full">
+        <form  method="post">
+          {% csrf_token %}
+          {{form.as_p}}
+          <input id='butt' type="submit" value="Download">
+          <!-- class = "btn btn-primary" -->
+      </form>
+  </div>
+{% endblock%}

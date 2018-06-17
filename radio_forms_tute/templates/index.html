@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<h1>Hello</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ farm.as_p }}
+  <input type="submit" value="Submit">
+</form>
+
+{% for radio in farm.choice_field %}
+<div class="myradio">
+    {{ radio }}
+</div>
+{% endfor %}
+
+{% for items in farm %}
+<h1>{{items}}</h1>
+{% endfor %}
+
+
+<form action="#" method="get">
+ <input type="text" value="8" name="mytextbox" size="1"/>
+ <input type="submit" class="btn" value="Click" name="mybtn">
+</form>
+<script
+src="http://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
+<script src = "{% static "ajax_test.js" %}"></script>
+  </body>
+</html>

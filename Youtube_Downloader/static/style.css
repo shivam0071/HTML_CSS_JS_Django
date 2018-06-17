@@ -1,0 +1,53 @@
+/* body{
+  margin: 0;
+} */
+
+h1{
+  color: Red;
+  text-align: center;
+}
+
+/* for url */
+label{
+  font-size: 50px;
+  color: yellow;
+}
+
+/* URL */
+/* form{
+
+} */
+
+#full{
+  background: "#fff";
+  opacity: 0.9;
+  padding: 2em;
+  /* border: #ccc 2px solid; */
+  position: absolute;
+  top: 100px;
+  left:50px;
+}
+
+#particles-js
+{
+  background: #101b3a;
+  /* height: 400px; */
+}
+
+p{
+  position: absolute;
+  /* width: 500px
+  margin:500px */
+}
+/* text area */
+input{
+color: blue;
+font-size: 50px
+}
+
+/* button */
+#butt{
+color: black;
+font-size: 50px;
+margin-left: 800px;
+}

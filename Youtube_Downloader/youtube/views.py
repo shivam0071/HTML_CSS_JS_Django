@@ -21,10 +21,13 @@ def index(request):
                 yt = YouTube(form.cleaned_data['url'])
                 print (yt.title)
                 stream = yt.streams.first() #lets take 1st for example
-                stream.download() #You can give a path here
+                print(stream)
+                #stream.download() #You can give a path here
             except:
                 print("Faulty URL")
+                return render(request, 'youtube/error.html',{})
+
             # yt.streams.all() #Choose a stream
 
 
-    return render(request, 'youtube/index.html', {'form': form })
+    return render(request, 'youtube/index.html', {'form': form})
