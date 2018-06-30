@@ -29,7 +29,7 @@ def index(request):
                 alts = {'altcoins':data}
                 return render(request,'altcoin/allcoins.html',context = alts)
 
-    return render(request,'altcoin/index.html',{})
+    return render(request,'altcoin/singlecoin.html',{})
 
 
 def allcoins(request):

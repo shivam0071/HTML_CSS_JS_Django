@@ -22,7 +22,7 @@ def index(request):
                 print (yt.title)
                 stream = yt.streams.first() #lets take 1st for example
                 print(stream)
-                #stream.download() #You can give a path here
+                stream.download() #You can give a path here
             except:
                 print("Faulty URL")
                 return render(request, 'youtube/error.html',{})

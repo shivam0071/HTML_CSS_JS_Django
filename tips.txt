@@ -36,7 +36,7 @@ calls that method every 500 millisecond
 
 CONDA and Stuff
 
-i created a virtual env usong CONDA
+i created a virtual env using CONDA
 conda create --name myDjangoEnv django
 which created a virtual env and also installed python and other packages which include django as well
 
@@ -77,6 +77,61 @@ python manage.py startapp first_app
   model.py ->
 
 
+from django.conf.urls import include -- for app based urls.py
+
+Model foreign key
+question = models.ForeignKey(Question, on_delete=models.CASCADE)  -->Question here is a class
+
+FIRST PROJECT > first App
+_______________________________________________________________________
+TO include static files folder just like template
+
+SETTINGS.PY
+
+  STATIC_URL = '/static/'
+  STATICFILES_DIRS = [
+      STATIC_DIR,
+  ]
+
+VIEW.py
+
+from django.http import HttpResponse -- for normal response
+just return it
+
+else use render
+my_dict = {'insert_me':'I am from first_app views.py'}
+return render(request,'first_app/index.html',context=my_dict )
+
+
+HTML(index.html)
+
+To use the static content in HTML
+{% load staticfiles %}
+
+first_app/index.html -- we have only specified the path of template and not first app so we included it here
+Now in HTML we have this static content(context) as...
+{{insert_me}}
+we find the key in the html and not the varible itself
+
+to include an image and css from the static folder we have
+
+<link rel="stylesheet" href="{% static "css/myStyle.css" %}"> --> so this becomes static/css/myStyle.css
+<img src="{% static "images/coins.jpg" %}" alt="Bitconnnnnnnecctttttttt!!!!!!!!!">
+
+URL.py
+from django.conf.urls import include  #ADDED so that urls are now taken from the apps itself
+from first_app import views
+
+path('',views.index, name = 'index'),  #Added the view here  --> Observe the syntax...name can be used at other places?
+path('help/',include('second_app.urls'), name = 'sec'),   --> using custom URL.py from secondapp..better way
+
+from django.conf.urls import url
+from second_app import views2
+from django.urls import path
+urlpatterns = [
+path('',views2.help, name = 'help'),
+]
+__________________________________________________________________________
 Polling project Starts here :-
 
 To call the view, we need to map it to a URL - and for this we need a URLconf
@@ -179,7 +234,8 @@ The reason that there are separate commands to make and apply migrations is
 because you’ll commit migrations to your version control system and ship them with your app;
 they not only make your development easier, they’re also useable by other developers and in production.
 
-
+_____________________________________________________________________________________________________________
+s
 PYTHON SHELL with Django in EnvVar
 $ python manage.py shell
 We’re using this instead of simply typing “python”, because manage.py sets the
@@ -207,6 +263,27 @@ pip install Faker
 
 docs:- faker.readthedocs.io
 
+MODELS:-
+view.py
+different methods of accessing data from database so far
+
+1.) webpg = AccessRecord.objects.order_by('date')
+
+2.) name = Name.objects.all()
+name_dict = {'first_n':name}
+
+3.) ddata = deepInfo.objects.filter(dname__name=coin_name) #dname is taking its value from name (foreign key)
+instead of taking all the objects like above...get only a particular column
+
+4.) data = BasicInfo.objects.filter(name = coin_name).values_list('symbol',flat=True)
+same like above....but here we are getting some other column value..'Bitcoin' > 'BTC'
+
+in html
+{% if access_records %}
+{% for acc in access_records %}
+{{acc.name}}
+{% endfor %}
+{% endif %}
 
 TEMPLATES :- The templates will contain the static parts of an HTML page
 make a template in manage.py level and define the HTML there now
@@ -233,9 +310,35 @@ for forms we do the following things
 
 checkout coininfocap app to see the usuage of many things
 
+from django import forms
+from django.core import validators
+class FormName(forms.Form):
+  email = forms.EmailField()
+  text = forms.CharField(widget=forms.Textarea) #to get the html style text area
+
+in view.py
+form = forms.FormName()
+the basic steps
+if request.method == 'POST':  #if it is a POST call
+      form = forms.FormName(request.POST)
+      if form.is_valid(): #and if the form is a valid form
+        # form.cleaned_data['name'] accessing the record?
+checkout forms.py of djangolevel3 basicforms for botcatcher and stuff
+
+
+MODEL forms
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = Name  #inline class..name model should be there
+        fields =  "__all__"  #to include all the columns.....take all the fields from the model and place them into the form
+    # exclude = ['field1',2] to exclude field
+    # fields = ('fields1',)
+
+Saving - user_form.save()
 level 4
 
 Using the anchor tag in html
+
 use a varable called app_name inside urls.py ,app_name = 'basic_app' now django automatically searches for a variable
 called app name and maps the url accordingly
 example:- <a href="{% url 'basic_app:other' %}">Other Page</a>
@@ -275,6 +378,22 @@ ex- Custom filters
 3.) make another pyhton files
 4.) check out the content in level 4...decorator used
 
+HTML:-
+<h1>{{ name|upper }} to </h1>
+<h1>{{ name|cut:'Hello' }}</h1>
+
+Code:-
+from django import template
+
+register = template.Library()
+#need to register this
+
+@register.filter(name='cut')  #passing a name which will act as our filter name
+def cut(value,args):
+    """
+    This cuts out all the args from value
+    """
+    return value.replace(args,'')
 
 
 Django Level 5:-
