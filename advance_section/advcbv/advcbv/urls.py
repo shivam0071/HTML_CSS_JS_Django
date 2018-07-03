@@ -18,6 +18,6 @@ from django.urls import path
 from basic_app import views
 urlpatterns = [
     # path('', views.index), #non class based method
-    path('',views.CBV.as_view()), # class based views way
+    path('',views.IndexView.as_view()), # class based views way
     path('admin/', admin.site.urls),
 ]

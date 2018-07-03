@@ -462,3 +462,34 @@ CBV's
 Class Based views
 
 we usually make a method in views.py to call an html but we can use classes as well..which is a better alternative
+
+import this in views:
+from django.views.generic import View
+views.py
+class CBV(View):
+    def get(self,request):
+        return HttpResponse("Class Based Views")
+
+
+in urls
+path('',views.CBV.as_view()), # class based views way
+
+just add templateViews to call the templates from the class based views
+from django.views.generic import View,TemplateView
+
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+As simple as that
+
+Now lets inject the data( the context dictionary)
+like this:-
+
+def get_context_data(self,**kwargs):
+    context = super().get_context_data(**kwargs)
+    context['injectme'] = 'BASIC INJECTION'
+    return context
+
+
+ListView and Detail View for Models
