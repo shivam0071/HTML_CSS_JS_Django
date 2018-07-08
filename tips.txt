@@ -503,3 +503,87 @@ using List views and detail views we dont have to make model objects they do it 
 now we also use names for urls in urls.py..
 path('',views.SchoolListView.as_view(),name='list')
 <li> <a class = "navbar-brand" href="{% url 'basic_app:list'%}">Schools</a> </li>
+
+also we are making urls on the fly using primary key which is made by django itself
+
+    re_path(r'(?P<pk>[-\w]+)/$',views.SchoolDetailView.as_view(),name='basic_app1'),
+
+this is the syntax for named views in python in regex ?P<name> regex
+/$ - is to add / at the end and $ signifies ?(idk) end in
+
+^.* //Start of string followed by zero or more of any character (except line break)
+
+.*$ //Zero or more of any character (except line break) followed by end of string
+
+. means "any character".
+* means "any number of this".
+.* therefore means an arbitrary string of arbitrary length.
+^ indicates the beginning of the string.
+$ indicates the end of the string.
+
+#CRUD
+
+Create Retrive Update Delete
+
+So basically we are foing to use CreateView, UpdateView , DeleteView
+
+CreateView - For Creating new entries in db
+UpdateView - for updating Existing entries in db
+DeleteView - To delete the entries or rows in db
+
+CreateView class added in views.py
+Error1 : ImproperlyConfigured at /basic_app/create
+Using ModelFormMixin (base class of SchoolCreateView) without the 'fields' attribute is prohibited.
+
+Solution :- add the fields which you want to modify
+fields = (name,principal,location)
+
+
+Error 2:- TemplateDoesNotExist at /basic_app/create
+basic_app/school_form.html
+
+Solution:- We have not created a template so lets create one and give it a name as suggested by django school_form.html
+
+so we have a form created by CreateView and we can use it to create new schools
+
+
+Error 3:
+ImproperlyConfigured at /basic_app/create
+No URL to redirect to.  Either provide a url or define a get_absolute_url method on the Model.
+
+Sol:- Here we dont have anywhere to go, lets do what django says "define a get_absolute_url method on the Model."
+
+just ADDED to School MODEL
+from django.urls import reverse
+
+def get_absolute_url (self):
+  return reverse("basic_app:detail",kwargs={'pk':self.pk})
+
+
+So now we have a returning page, which is school detail with newly added school ID
+
+
+UpdateView - for updating the entries in DB
+
+DeleteView -
+
+They are simple
+
+class SchoolUpdateView(UpdateView):
+    fields = ('name','principal')
+    model = School
+
+class SchoolDeleteView(DeleteView):
+    model = School
+    success_url = reverse_lazy("basic_app:list")
+
+
+here we notice that we are not giving any template names...of the html files
+but still the view is picking uo the correct html/templates files
+How?
+
+Well they have some default file names ad context names
+so its that
+like for list view we have
+school_list.html
+etc etc
