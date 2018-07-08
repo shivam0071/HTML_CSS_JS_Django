@@ -493,3 +493,13 @@ def get_context_data(self,**kwargs):
 
 
 ListView and Detail View for Models
+we have imported those in views.py and also made a new folder as templates inside the app folder
+and included some htmls in that
+
+we have made 2 models and made 2 classes in views.py
+
+using List views and detail views we dont have to make model objects they do it for us...we just need to use them
+
+now we also use names for urls in urls.py..
+path('',views.SchoolListView.as_view(),name='list')
+<li> <a class = "navbar-brand" href="{% url 'basic_app:list'%}">Schools</a> </li>

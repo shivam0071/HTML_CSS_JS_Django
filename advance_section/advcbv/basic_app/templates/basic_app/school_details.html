@@ -1,0 +1,14 @@
+{% extends "basic_app/basic_app_base.html" %}
+{% block  body_block %}
+  <div class="jumbotron">
+    <h1>Welcome to the School Detail Page</h1>
+    <h2>School Details</h2>
+    <p>Name: {{school_detail.name}} </p>
+    <p>Principal: {{school_detail.principal}} </p>
+    <p>Location: {{school_detail.location}} </p>
+    <h3>Students:</h3>
+    {% for students in school_detail.students.all %}
+    <p>{{students.name}} who is {{students.age}} years old</p>
+    {% endfor %}
+  </div>
+{% endblock %}
