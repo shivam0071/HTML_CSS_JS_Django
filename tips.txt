@@ -456,6 +456,16 @@ pip install pillow
 
 login
 checkout view.py of level 5
+from django.contrib.auth.decorators import login_required #add the decorator to perform certain actions only after
+login_required
+def special(request):
+    return HttpResponse('You are logged in , Awesome')
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
+
 
 
 CBV's
@@ -577,9 +587,11 @@ class SchoolDeleteView(DeleteView):
     model = School
     success_url = reverse_lazy("basic_app:list")
 
+  # we have to make sure that the post is deleted then take the user where ever we want so for that
+  # we do lazyreverse
 
 here we notice that we are not giving any template names...of the html files
-but still the view is picking uo the correct html/templates files
+but still the view is picking up the correct html/templates files
 How?
 
 Well they have some default file names ad context names
@@ -587,3 +599,38 @@ so its that
 like for list view we have
 school_list.html
 etc etc
+
+
+CLONE PROJECT:-
+
+def get_absolute_url (self):
+    return reverse("post_list")
+
+reverse in models- Where should out website take the user
+reverse('page',kwargs:pk)
+
+in settings.py
+LOGIN_REDIRECT_URL = '/'
+where to go after login
+
+
+for SQL like query
+def get_queryset(self):
+      return Post.objects.filter(published_date__lte=timezone.now().order_by('-published_date'))
+
+select * from post where published date <=today's date orderby published dat(ascending order)
+
+USING our own widgits in the forms
+class PostForm(form.ModelForm):
+
+    class Meta():
+        model = Post
+        fields = ('author','title','text')
+
+        widgets = {
+        'title':forms.TextInput(attrs={'class':'textinputclass'}) #class here is a css styling class..out class
+        'text':forms.TextArea(attrs={'class': 'editable medium-editor-textarea postcontent'})
+
+
+from django.contrib.auth import views
+(login logout in urls.py of mysite)
